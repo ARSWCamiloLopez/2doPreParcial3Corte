@@ -15,22 +15,21 @@ import org.springframework.data.annotation.Id;
 public class Cadena {
 
     @Id
-    private Integer idCadena;
+    public String idCadena;
 
     private String contenidoCadena;
     private Date fechaCadena;
 
-    public Cadena(Integer idCadena, String contenidoCadena, Date fechaCadena) {
-        this.idCadena = idCadena;
+    public Cadena(String contenidoCadena, Date fechaCadena) {
         this.contenidoCadena = contenidoCadena;
         this.fechaCadena = fechaCadena;
     }
 
-    public Integer getIdCadena() {
+    public String getIdCadena() {
         return idCadena;
     }
 
-    public void setIdCadena(Integer idCadena) {
+    public void setIdCadena(String idCadena) {
         this.idCadena = idCadena;
     }
 

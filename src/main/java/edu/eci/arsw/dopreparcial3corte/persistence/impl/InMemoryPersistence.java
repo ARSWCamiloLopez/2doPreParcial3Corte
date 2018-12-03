@@ -24,6 +24,9 @@ public class InMemoryPersistence implements Persistence {
     @Autowired
     CadenaRepository cRepository;
 
+    public InMemoryPersistence() {
+    }   
+    
     @Override
     public void crearNuevaCadena(Cadena cadena) {
         Cadena nuevaCadena = cadena;
@@ -34,10 +37,10 @@ public class InMemoryPersistence implements Persistence {
     @Override
     public List<Cadena> obtenerLasUltimas10Cadenas() {
         List<Cadena> lista10Cadenas = new ArrayList<>();
-        List<Cadena> listaCadenas = cRepository.findAll();
+        List<Cadena> listaCadenas = cRepository.findAll();       
 
         if (listaCadenas.size() >= 10) {
-            for (int x = 0; x < 10; x++) {
+            for (int x = listaCadenas.size() - 1; x > listaCadenas.size() - 11; x--) {
                 lista10Cadenas.add(listaCadenas.get(x));
             }
             return lista10Cadenas;

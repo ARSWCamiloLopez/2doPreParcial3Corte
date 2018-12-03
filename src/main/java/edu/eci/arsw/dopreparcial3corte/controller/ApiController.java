@@ -42,16 +42,16 @@ public class ApiController {
     @RequestMapping(method = RequestMethod.GET, path = "/cadenas")
     public ResponseEntity<?> obtenerUltimas10Cadenas() {
         try {
-            Map<Integer, Cadena> blueprints = new HashMap();
+            Map<String, Cadena> cadenas = new HashMap();
 
             List<Cadena> listaCadenas = new ArrayList<>();
             listaCadenas.addAll(services.obtenerLasUltimas10Cadenas());
 
             for (Cadena x : listaCadenas) {
-                blueprints.put(x.getIdCadena(), x);
+                cadenas.put(x.getIdCadena(), x);
             }
 
-            String codeToJson = new Gson().toJson(blueprints);
+            String codeToJson = new Gson().toJson(cadenas);
 
             return new ResponseEntity<>(codeToJson, HttpStatus.ACCEPTED);
         } catch (Exception ex) {

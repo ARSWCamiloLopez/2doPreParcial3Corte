@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 
-function crearLaSolicitud() {
+async function crearLaSolicitud() {
 
     var fechaActual = new Date();
 
     if (document.getElementById("basic-url").value !== "") {
         axios.post('api/agregarCadena', {
             1: {
-                idCadena: '100' + fechaActual.getDate() + fechaActual.getHours() + fechaActual.getMinutes(),
                 contenidoCadena: document.getElementById("basic-url").value,
                 fechaCadena: fechaActual
             }
@@ -20,6 +19,17 @@ function crearLaSolicitud() {
                     console.log(response.data);
                 })
     }
+
+    document.getElementById("tbody").innerHTML = "";
+    document.getElementById("basic-url").disabled = true;
+    document.getElementById("btnEnviar").disabled = true;
+
+    await sleep(2000);
+
+    actualizarTabla();
+
+    document.getElementById("basic-url").disabled = false;
+    document.getElementById("btnEnviar").disabled = false;
 
 }
 
@@ -39,4 +49,9 @@ function actualizarTabla() {
                     columnas.appendChild(trElement);
                 }
             })
+}
+
+//Para realizar una espera
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
