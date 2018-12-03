@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: InMemoryPersistenceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE! - in InMemoryPersistenceTest
-añadir5CadenasYVerificarCantidad(InMemoryPersistenceTest)  Time elapsed: 0.002 sec  <<< ERROR!
-java.lang.NullPointerException: null
-	at InMemoryPersistenceTest.añadir5CadenasYVerificarCantidad(InMemoryPersistenceTest.java:34)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in InMemoryPersistenceTest
